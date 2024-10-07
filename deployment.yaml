@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-php
+  labels:
+    app: hello-world-php
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world-php
+  template:
+    metadata:
+      labels:
+        app: hello-world-php
+    spec:
+      containers:
+      - name: hello-world-php
+        image: hello-world-php:1.0
+        ports:
+        - containerPort: 80
+
